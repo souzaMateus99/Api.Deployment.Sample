@@ -21,7 +21,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: 'Api.Deployment.Sample -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp3.1'
+    arguments: '-c Release -o Api.Deployment.Sample/bin/Release/netcoreapp3.1'
     zipAfterPublish: True
     projects: '**/*.csproj'
 - script: |
