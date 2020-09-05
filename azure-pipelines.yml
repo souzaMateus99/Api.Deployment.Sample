@@ -4,6 +4,7 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest'
 
+
 steps:
 - script: |
     dotnet restore Api.Deployment.Sample
@@ -11,10 +12,8 @@ steps:
     mkdir artifact
     cp -r Api.Deployment.Sample/bin/netcoreapp3.1 artifact/$(Build.SourceBranchName)
   displayName: Build Application
-- task: DotNetCoreCLI@2
-  
 - task: PublishPipelineArtifact@1
   displayName: Publish Artifact
   inputs:
-    targetPath: '$(Pipeline.Workspace)/artifact'
-    artifact: 'Api.Deployment.Sample'
+    targetPath: '$(System.DefaultWorkingDirectory)/artifact'
+    artifact: 'ApiDeploymentSample'
