@@ -11,11 +11,18 @@ steps:
     command: 'build'
     projects: 'Api.Deployment.Sample/Api.Deployment.Sample.csproj'
 - task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: 'restore'
+    projects: 'Api.Deployment.Sample/Api.Deployment.Sample.csproj'
+    feedsToUse: 'select'
+- task: DotNetCoreCLI@2
   displayName: Publish
   inputs:
     command: 'publish'
+    projects: 'Api.Deployment.Sample/Api.Deployment.Sample.csproj'
     publishWebProjects: true
-    arguments: '.\Api.Deployment.Sample\Api.Deployment.Sample.csproj -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp3.1'
+    arguments: 'Api.Deployment.Sample -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp3.1'
 - script: |
     mkdir artifact
     cp -r Api.Deployment.Sample/bin/Release/netcoreapp3.1 artifact/$(Build.SourceBranchName)
