@@ -10,7 +10,7 @@ steps:
     dotnet restore Api.Deployment.Sample
     dotnet publish -c Release -o bin/Release/netcoreapp3.1
     mkdir artifact
-    cp -r Api.Deployment.Sample/bin/netcoreapp3.1 artifact/$(Build.SourceBranchName)
+    cp -r Api.Deployment.Sample/bin/Release/netcoreapp3.1 artifact/$(Build.SourceBranchName)
   displayName: Build Application
 - task: PublishPipelineArtifact@1
   displayName: Publish Artifact
