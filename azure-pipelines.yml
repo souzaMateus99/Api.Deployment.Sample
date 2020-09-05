@@ -20,9 +20,10 @@ steps:
   displayName: Publish
   inputs:
     command: 'publish'
-    projects: 'Api.Deployment.Sample/Api.Deployment.Sample.csproj'
     publishWebProjects: true
     arguments: 'Api.Deployment.Sample -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp3.1'
+    zipAfterPublish: True
+    projects: '**/*.csproj'
 - script: |
     mkdir artifact
     cp -r Api.Deployment.Sample/bin/Release/netcoreapp3.1 artifact/$(Build.SourceBranchName)
