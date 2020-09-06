@@ -26,6 +26,6 @@ steps:
   displayName: Run Script
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)/artifact/publish.zip'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)/artifact/'
     ArtifactName: 'drop'
     publishLocation: FilePath
