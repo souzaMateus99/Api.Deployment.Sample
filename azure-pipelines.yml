@@ -18,11 +18,11 @@ steps:
     pwd && ls -la
     dotnet restore
     dotnet publish Api.Deployment.Sample/Api.Deployment.Sample.csproj -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
-    mkdir artifact
+    mkdir $(Build.ArtifactStagingDirectory)/artifact
     echo Novo
     echo Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
     ls Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
-    cp -r Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version) artifact/$(Build.SourceBranchName)
+    cp -r Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version) $(Build.ArtifactStagingDirectory)/artifact/$(Build.SourceBranchName)
   displayName: Run Script
 - task: PublishBuildArtifacts@1
   inputs:
