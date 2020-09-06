@@ -24,8 +24,8 @@ steps:
     ls Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
     cp -r Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version) artifact/$(Build.SourceBranchName)
   displayName: Run Script
-- task: PublishPipelineArtifact@1
-  displayName: Publish Artifact
+- task: PublishBuildArtifacts@1
   inputs:
-    targetPath: '$(System.DefaultWorkingDirectory)/artifact/publish.zip'
-    artifact: $(project_name)
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/artifact'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
