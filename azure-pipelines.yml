@@ -1,6 +1,6 @@
 variables:
   project_name: 'Api.Deployment.Sample'
-  netcore_version: 3.1
+  netcore_version: '3.1'
 
 trigger:
 - master
