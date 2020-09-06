@@ -17,7 +17,7 @@ steps:
     projects: 'Api.Deployment.Sample/Api.Deployment.Sample.csproj'
     feedsToUse: 'select'
 - script: |
-    dotnet publish Api.Deployment.Sample\Api.Deployment.Sample.csproj -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp3.1
+    dotnet publish -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp3.1
     mkdir artifact
     cp -r Api.Deployment.Sample/bin/Release/netcoreapp3.1 artifact/$(Build.SourceBranchName)
   displayName: Run Script
