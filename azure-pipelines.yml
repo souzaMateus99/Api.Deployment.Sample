@@ -22,7 +22,8 @@ steps:
     echo Novo
     echo Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
     ls Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
-    cp -r Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version) $(System.DefaultWorkingDirectory)/artifact/$(Build.SourceBranchName)
+    cp -r Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version) /artifact/$(Build.SourceBranchName)
+    pwd && ls
   displayName: Run Script
 - task: PublishBuildArtifacts@1
   inputs:
