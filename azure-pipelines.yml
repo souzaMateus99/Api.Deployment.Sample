@@ -16,8 +16,8 @@ steps:
     projects: 'Api.Deployment.Sample/Api.Deployment.Sample.csproj'
 - script: |
     pwd && ls -la
-    dotnet restore
-    dotnet publish -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
+    dotnet restore Api.Deployment.Sample\
+    dotnet publish Api.Deployment.Sample\ -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
     mkdir artifact
     cp -r Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version) artifact/$(Build.SourceBranchName)
   displayName: Run Script
