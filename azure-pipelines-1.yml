@@ -14,5 +14,5 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build $(projectName)/$(projectName).csproj --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(projectName)/$(projectName).csproj $(buildConfiguration)'
+- script: dotnet build Api.Deployment.Sample/Api.Deployment.Sample.csproj --configuration $(buildConfiguration)
+  displayName: 'dotnet build Api.Deployment.Sample/Api.Deployment.Sample.csproj $(buildConfiguration)'
