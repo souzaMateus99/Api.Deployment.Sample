@@ -19,7 +19,8 @@ steps:
     dotnet restore Api.Deployment.Sample\
     dotnet publish Api.Deployment.Sample\ -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
     mkdir artifact
-    ls artifact
+    echo Novo
+    pwd && ls -la
     cp -r Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version) artifact/$(Build.SourceBranchName)
   displayName: Run Script
 - task: PublishPipelineArtifact@1
