@@ -19,6 +19,9 @@ steps:
     dotnet restore
     dotnet publish -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
     mkdir artifact
+    echo Novo
+    echo $(Build.SourceBranchName)
+    cp -r Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version) artifact/$(Build.SourceBranchName)
   displayName: Run Script
 - task: PublishPipelineArtifact@1
   displayName: Publish Artifact
