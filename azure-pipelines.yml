@@ -28,4 +28,4 @@ steps:
   displayName: Publish Artifact
   inputs:
     targetPath: '$(System.DefaultWorkingDirectory)/artifact'
-    artifact: 'ApiDeploymentSample'    
+    artifact: $(project_name)
