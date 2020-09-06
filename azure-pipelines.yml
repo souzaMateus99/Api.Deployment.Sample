@@ -20,7 +20,11 @@ steps:
     dotnet publish -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
     mkdir artifact
     echo Novo
-    pwd && ls -la
+    ls -la
+    ls Api.Deployment.Sample/
+    ls Api.Deployment.Sample/bin/
+    ls Api.Deployment.Sample/bin/Release/
+    ls Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
     cp -r Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version) artifact/$(Build.SourceBranchName)
   displayName: Run Script
 - task: PublishPipelineArtifact@1
