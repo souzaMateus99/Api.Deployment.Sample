@@ -1,3 +1,7 @@
+variables:
+  project_name: 'Api.Deployment.Sample'
+  netcore_version: 3.1
+
 trigger:
 - master
 
@@ -10,16 +14,12 @@ steps:
   inputs:
     command: 'build'
     projects: 'Api.Deployment.Sample/Api.Deployment.Sample.csproj'
-- task: DotNetCoreCLI@2
-  displayName: Restore
-  inputs:
-    command: 'restore'
-    projects: 'Api.Deployment.Sample/Api.Deployment.Sample.csproj'
-    feedsToUse: 'select'
 - script: |
-    dotnet publish -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp3.1
+    pwd && ls -la
+    dotnet restore
+    dotnet publish -c Release -o Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version)
     mkdir artifact
-    cp -r Api.Deployment.Sample/bin/Release/netcoreapp3.1 artifact/$(Build.SourceBranchName)
+    cp -r Api.Deployment.Sample/bin/Release/netcoreapp$(netcore_version) artifact/$(Build.SourceBranchName)
   displayName: Run Script
 - task: PublishPipelineArtifact@1
   displayName: Publish Artifact
