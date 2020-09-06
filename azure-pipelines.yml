@@ -22,8 +22,8 @@ steps:
     command: 'publish'
     publishWebProjects: true
     arguments: '-c Release -o Api.Deployment.Sample/bin/Release/netcoreapp3.1'
+    projects: 'Api.Deployment.Sample/Api.Deployment.Sample.csproj'
     zipAfterPublish: True
-    projects: '**/**/*.csproj'
 - script: |
     mkdir artifact
     cp -r Api.Deployment.Sample/bin/Release/netcoreapp3.1 artifact/$(Build.SourceBranchName)
