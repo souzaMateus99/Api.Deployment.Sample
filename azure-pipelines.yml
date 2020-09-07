@@ -29,4 +29,3 @@ steps:
   inputs:
     PathtoPublish: '$(System.DefaultWorkingDirectory)/artifact/'
     ArtifactName: 'drop'
-    publishLocation: Container
